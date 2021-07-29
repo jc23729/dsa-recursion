@@ -1,13 +1,16 @@
 /** product: calculate the product of an array of numbers. */
 
-function product(nums) {
-
+function product(nums, idx = 0) {
+  if (idx >= nums.length) return 1;
+  return nums[idx] * product(nums, idx + 1);
 }
 
 /** longest: return the length of the longest word in an array of words. */
 
-function longest(words) {
-
+function longest(words, idx = 0, longestSoFar = 0) {
+ if (idx === 0) return longestSoFar;
+  longestSoFar = Math.max(longestSoFar, words[idx].length);
+  return longest(words, idx - 1, longestSoFar);
 }
 
 /** everyOther: return a string with every other letter. */
